@@ -1,0 +1,113 @@
+\documentclass[12pt]{article}
+
+% Times New Roman font
+\usepackage{newtxmath}
+
+% For 1.5 line spacing
+\usepackage{setspace}
+\onehalfspacing
+% \doublespacing
+
+% \setcounter{page}{1} % Resets page numbering to start from 1
+
+% For wide margins
+\usepackage[margin=1.7in]{geometry}
+
+\usepackage[hang,flushmargin]{footmisc}
+% \footnotemargin=0.4cm
+% \footnotesep=0.3cm
+
+\usepackage{footnotebackref}
+
+\usepackage{csquotes}
+% \enquote{⟨text⟩}
+% \textquote[{\cite[67]{doe90}}]{...}
+% \blockquote[⟨cite⟩][⟨punct⟩]{⟨text⟩}⟨tpunct⟩
+
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+% Smaller bullets
+% \renewcommand\labelitemi{{\boldmath$\cdot$}}
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\usepackage{enumitem}
+\setlist{noitemsep}
+% \setlist{nosep}
+
+% For citations
+\usepackage{citation-style-language}
+\cslsetup{style = mcgill-en-modified}
+\addbibresource{bibliography.json}
+
+% Hack to suppress missing citation output
+\newcommand{\mycomment}[1]{}
+\mycomment{
+\addbibresource{bibliography.bib}
+}
+
+% Disable page numbers
+% \pagestyle{empty}
+
+% Indent the first paragraph after a section header
+% \usepackage{indentfirst}
+
+% % Disable paragraph indentation
+% \setlength{\parindent}{0pt}
+
+% % Add space between paragraphs
+% \setlength{\parskip}{\baselineskip}
+% \setlength{\parskip}{0.5\baselineskip}
+% \setlength{\parskip}{0.5em}
+
+\newcommand\cs[1]{\texttt{\textbackslash #1}}
+
+\renewcommand\refname{Bibliography}
+
+% determines up to which level of sectioning numbers are added to section titles
+% \setcounter{secnumdepth}{0}
+
+% \usepackage{titlesec}
+% \titleformat*{\section}{\small}
+
+\begin{document}
+
+% check citation output against https://library.carleton.ca/guides/help/uniform-legal-citation-style-mcgill-guide
+\title{}
+\author{Alex Chalk\\\\}
+\date{\today}
+\maketitle
+% Disable first page number
+% \thispagestyle{empty}
+
+% \section*{Introduction}
+
+% \cite{foo}
+% \textquote{bar}
+% \cite[article = 27(1)]{baz}
+% \textit{qux}
+
+% \subsection{quux}
+% \subsubsection*{corge}
+
+% \begin{itemize}
+%   \item \cite[prefix = {see }, paragraph = 55--84]{grault, garply}
+%   \item \cite[paragraph={104,107--115}]{waldo}
+% \end{itemize}
+
+% \cite[preamble]{fred}
+% \footnote{see \href{link_location}{link-name}}
+
+% \cite[prefix={ see }, section=4.7.A]{plugh}
+
+% \textcite[suffix = {'s early work}]{xyzzy}
+
+% \citeauthor{thud}
+
+% \cite{lorem, ipsum}
+
+% \nocite{dolor}
+
+% \printbibliography
+
+\end{document}
