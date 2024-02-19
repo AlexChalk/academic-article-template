@@ -26,6 +26,7 @@ rm *.aux ; rm *.bbl ; rm *.blg ; rm *.ccf ; rm *.fdb_latexmk ; rm *.fls ; rm *.l
 ### Relevant projects:
 - https://github.com/papis/papis
 - https://github.com/citation-style-language
+- https://github.com/citation-style-language/schema
 - https://github.com/zepinglee/citeproc-lua
 - https://github.com/jgm/pandoc
 - https://gitlab.freedesktop.org/poppler/poppler
