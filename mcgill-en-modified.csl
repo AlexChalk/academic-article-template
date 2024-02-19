@@ -361,11 +361,11 @@ all the other tests should have been done... -->
     </group>
   </macro>
   <macro name="render-case">
-    <text variable="title" font-style="italic" suffix=", " strip-periods="true"/>
+    <text variable="title" font-style="italic" suffix=" " strip-periods="true"/>
     <choose>
       <if variable="container-title" match="none">
         <group delimiter=" ">
-          <date form="text" variable="issued" date-parts="year"/>
+          <date form="text" variable="issued" date-parts="year" prefix="(" suffix="), "/>
           <text variable="authority" strip-periods="true"/>
           <text variable="page"/>
           <if variable="arbitrators" match="any">
