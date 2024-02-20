@@ -4,17 +4,17 @@
 
 ### Export bibliography
 ```bash
-papis --cc # clears cache
+papis --clear-cache
 papis export --all --format json | jq 'map(.id = .ref)' > bibliography.json
 ```
 ### Generate unused biblatex file for lsp integration:
 ```bash
-pandoc bibliography.json -f csljson -t biblatex -s -o bibliography.bib --verbose
+pandoc bibliography.json --from csljson --to biblatex --standalone --output bibliography.bib --verbose
 ```
 
 ### "microsoft-word-style" wordcount:
 ```bash
-pdftotext article.pdf - | sed 's/•//' | sed -E 's/^[[:digit:]]+[[:space:]]*$//' | wc -w
+pdftotext article.pdf - | sed 's/•//' | sed --regexp-extended 's/^[[:digit:]]+[[:space:]]*$//' | wc -w
 ```
 
 ### Misc
