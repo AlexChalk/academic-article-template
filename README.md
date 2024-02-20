@@ -14,7 +14,7 @@ pandoc bibliography.json --from csljson --to biblatex --standalone --output bibl
 
 ### "microsoft-word-style" wordcount:
 ```bash
-pdftotext article.pdf - | sed 's/•//' | sed --regexp-extended 's/^[[:digit:]]+[[:space:]]*$//' | wc -w
+pdftotext article.pdf - | sed 's/•//' | sed --regexp-extended 's/^[[:digit:]]+[[:space:]]*$//' | wc --words
 ```
 
 ### Misc
