@@ -12,6 +12,16 @@ papis export --all --format json | jq 'map(.id = .ref)' > bibliography.json
 pandoc bibliography.json --from csljson --to biblatex --standalone --output bibliography.bib --verbose
 ```
 
+### Generate unhyphenated file with no footnote page breaks (for extra-cautious wordcount/abbreviation analysis):
+```bash
+latexmk -usepretex='\hyphenpenalty=10000 \interfootnotelinepenalty=10000' -interaction=batchmode -synctex=1 article.tex
+```
+
+### Remove unused title abbreviations from bibliography:
+```bash
+./ts-trimmer.sh article.pdf bibliography.json
+```
+
 ### "microsoft-word-style" wordcount:
 ```bash
 pdftotext article.pdf - | sed 's/•//' | sed --regexp-extended 's/^[[:digit:]]+[[:space:]]*$//' | wc --words
