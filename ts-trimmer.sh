@@ -24,7 +24,7 @@ fi
 
 tst() {
   local article
-  local title_matcher='\[([^\[]*?)[[:space:]]?\]\.$'
+  local title_matcher='\[([^\[]*?)[[:space:]]?\](;|\.$)'
   local short_titles
   local remove_hyphens
   local remove_linebreaks
