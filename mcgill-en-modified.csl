@@ -614,11 +614,11 @@ Not implemented: "cited to" for cases construct short casenames adding ref to ar
             <choose>
               <if type="legal_case" match="any">
                 <text variable="references" prefix=", "/>
-                <text variable="title-short" prefix=" [" suffix="]" font-style="italic" strip-periods="true"/>
+                <text variable="title-short" prefix=" [" suffix="]" font-style="italic"/>
               </if>
               <if type="treaty" match="any">
                 <text variable="references" prefix=", "/>
-                <text variable="title-short" prefix=" [" suffix="]" font-style="italic" strip-periods="true"/>
+                <text variable="title-short" prefix=" [" suffix="]" font-style="italic"/>
               </if>
             </choose>
           </group>
