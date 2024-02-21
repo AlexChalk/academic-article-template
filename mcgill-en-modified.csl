@@ -73,6 +73,16 @@
       <name and="symbol"/>
     </names>
   </macro>
+  <macro name="case-year">
+    <choose>
+      <if variable="no-year-court-case">
+        <text value=", "/>
+      </if>
+      <else>
+        <date form="text" variable="issued" date-parts="year" prefix=" (" suffix="), "/>
+      </else>
+    </choose>
+  </macro>
   <macro name="container-title">
     <text strip-periods="true" variable="container-title" form="short"/>
   </macro>
@@ -361,25 +371,25 @@ all the other tests should have been done... -->
     </group>
   </macro>
   <macro name="render-case">
-    <text variable="title" font-style="italic" suffix=" " strip-periods="true"/>
+    <text variable="title" font-style="italic" strip-periods="true"/>
     <choose>
       <if variable="container-title" match="none">
-        <group delimiter=" ">
-          <date form="text" variable="issued" date-parts="year" prefix="(" suffix="), "/>
-          <text variable="authority" strip-periods="true"/>
-          <text variable="page"/>
-          <if variable="arbitrators" match="any">
-            <text variable="arbitrators" prefix="(Arbitrators: " suffix=")" strip-periods="true"/>
-          </if>
-        </group>
+        <text macro="case-year"/>
+        <text variable="authority" strip-periods="true"/>
+        <text variable="page"/>
       </if>
       <else>
-        <date form="text" variable="issued" date-parts="year" prefix="[" suffix="] "/>
+        <text macro="case-year"/>
         <text variable="volume" suffix=" "/>
         <text variable="container-title" suffix=" " strip-periods="true"/>
         <text variable="page"/>
         <!-- COMMENTED OUT FOR 9TH ED  <text variable="authority" prefix=" (" suffix=")" strip-periods="true"/> -->
       </else>
+    </choose>
+    <choose>
+      <if variable="arbitrators" match="any">
+        <text variable="arbitrators" prefix=" (Arbitrators: " suffix=")" strip-periods="true"/>
+      </if>
     </choose>
     <!-- COMMENTED OUT FOR 9TH ED  <text variable="URL" prefix=" (available on " suffix=")"/> -->
   </macro>
