@@ -29,6 +29,7 @@
 % \blockquote[⟨cite⟩][⟨punct⟩]{⟨text⟩}⟨tpunct⟩
 
 \usepackage{hyperref}
+\hypersetup{hyperfootnotes=false}
 \hypersetup{hidelinks}
 
 % Smaller bullets
@@ -43,6 +44,8 @@
 \usepackage{citation-style-language}
 \cslsetup{style = mcgill-en-modified}
 \addbibresource{bibliography.json}
+
+\usepackage{bibentry}
 
 % Hack to suppress missing citation output
 \newcommand{\mycomment}[1]{}
@@ -103,7 +106,9 @@
 %   \item \footnote{see \href{link_location}{link-name}}
 % \end{enumerate}
 
-% \cite[prefix={ see }, section=4.7.A]{plugh}
+% \begin{displayquote}
+  % \cite[prefix={ see }, section=4.7.A]{plugh}
+% \end{displayquote}
 
 % \textcite[suffix = {'s early work}]{xyzzy}
 
