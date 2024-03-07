@@ -12,7 +12,7 @@ if ! type sed >/dev/null 2>&1; then
   exit 1
 fi
 
-if sed -i "" temp <<<"" 2>/dev/null; then
+if ! sed -z '' </dev/null 2>/dev/null; then
   echo 'ts-trimmer needs (gnu) sed to work correctly, you have Mac/BSD sed installed'
   exit 1
 fi
