@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")"
+
+if [ -L "bibliography.bib" ]; then
+  echo "Symlinks already exist, exiting...."
+  exit 0
+fi
+
+if [ -s "bibliography.bib" ]; then
+  echo "This project already has bibliography files."
+  read -s -p "Running this command will destroy those files, continue (y/n)?" -n 1 -r
+
+  if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo ""
+    echo "Operation cancelled."
+    exit 0
+  fi
+fi
+
+rm -f bibliography.bib
+rm -f bibliography.json
+
+ln -s "$HOME"/Dropbox/papis/Zotero.bib bibliography.bib
+ln -s "$HOME"/Dropbox/papis/Zotero.json bibliography.json
+
+echo "Bibliography symlinks created."
