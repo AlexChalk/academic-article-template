@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+copy_from_symlink() {
+  original_file=$(readlink "$1")
+  rm "$1"
+  cp "$original_file" "$1"
+}
+
+cd "$(dirname "$0")"
+
+if [[ -L "bibliography.bib" && -L "bibliography.json" ]]; then
+  copy_from_symlink bibliography.bib
+  copy_from_symlink bibliography.json
+  echo "Bibliography files copied to project."
+  exit 0
+fi
+
+echo "No bibliography symlinks, exiting."

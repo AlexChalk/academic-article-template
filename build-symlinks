@@ -4,17 +4,17 @@ set -e
 
 cd "$(dirname "$0")"
 
-if [ -L "bibliography.bib" ]; then
-  echo "Symlinks already exist, exiting...."
+if [[ -L "bibliography.bib" ]]; then
+  echo "Symlinks already exist, exiting..."
   exit 0
 fi
 
-if [ -s "bibliography.bib" ]; then
+if [[ -s "bibliography.bib" ]]; then
   echo "This project already has bibliography files."
   read -s -p "Running this command will destroy those files, continue (y/n)?" -n 1 -r
+  echo ""
 
   if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-    echo ""
     echo "Operation cancelled."
     exit 0
   fi
